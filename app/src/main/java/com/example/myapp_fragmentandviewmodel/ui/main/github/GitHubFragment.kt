@@ -45,7 +45,7 @@ class GitHubFragment : Fragment() {
             adapter.users(it)
         })
 
-        binding.viewModel = viewModel
+//        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }

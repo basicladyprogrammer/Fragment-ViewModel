@@ -3,7 +3,7 @@ package com.example.myapp_fragmentandviewmodel.ui.main.github
 import retrofit2.Response
 import retrofit2.http.GET
 
-data class GithubUser (var login:String, var avatar_url:String)
+data class GithubUser (var login:String, var avatar_url:String, var node_id:String)
 
 interface GithubService {
     @GET("users")

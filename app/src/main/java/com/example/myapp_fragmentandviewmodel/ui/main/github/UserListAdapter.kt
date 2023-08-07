@@ -17,9 +17,6 @@ class UserListAdapter internal constructor(
     private val viewModel:GitHubViewModel
 ): RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
 
-    private var githubUsers = emptyList<GithubUser>()
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-
     inner class UserViewHolder(
         itemView: View,
         private val binding: GithubUserViewBinding,
@@ -28,14 +25,16 @@ class UserListAdapter internal constructor(
         private val lifecycleOwner: LifecycleOwner
     ): RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: GithubUser) {
+        fun bind(githubUser: GithubUser) {
             //binding
-            binding.item = item
-            binding.viewModel = viewModel
+            binding.githubUser = githubUser//            binding.viewModel = viewModel
             binding.executePendingBindings()
             binding.lifecycleOwner = lifecycleOwner
         }
     }
+
+    private var githubUsers = emptyList<GithubUser>()
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding: GithubUserViewBinding = DataBindingUtil.inflate( inflater, R.layout.github_user_view, parent, false)
